@@ -17,7 +17,7 @@ import javarefresh.model.DoctorJSONBean;
 import javarefresh.model.DoctorXMLBean;
 
 /**
- * Purpose:Get the all the doctors, based on id etc.
+ * Purpose:Get the all the doctors as well as based on id etc.
  *
  * Description:
  *

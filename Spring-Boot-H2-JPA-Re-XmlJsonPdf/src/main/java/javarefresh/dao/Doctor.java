@@ -15,7 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Purpose: JPA entity.
+ * Purpose: JPA entity and same will load at runtime/application startup by
+ * using H2 database.
  *
  * Description:
  *
@@ -39,9 +40,9 @@ public class Doctor implements Serializable {
 	@Column(name = "name")
 	private String name;
 
-	//In H2 database automatic mapping will happen base on reflection
-	//So column name should map with _ if more that one word 
-	@Column(name = "register_id") 
+	// In H2 database automatic mapping will happen base on reflection
+	// So column name should map with _ if more that one word
+	@Column(name = "register_id")
 	private int registerId;
 
 	public Doctor() {

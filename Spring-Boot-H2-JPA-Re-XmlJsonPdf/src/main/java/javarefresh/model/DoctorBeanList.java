@@ -12,7 +12,8 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 /**
- * Purpose:
+ * Purpose:Better format of the list this kind of modification has been done for
+ * list.
  *
  * Description:
  *

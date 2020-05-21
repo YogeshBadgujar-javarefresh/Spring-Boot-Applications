@@ -8,7 +8,7 @@ package javarefresh.dao;
 import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.CrudRepository;
 /**
- * Purpose: Repository having CRUD operation.
+ * Purpose: Repository having CRUD operation only.
  *
  * Description:
  *

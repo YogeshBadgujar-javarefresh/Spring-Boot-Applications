@@ -26,7 +26,8 @@ import javarefresh.model.DoctorXMLBean;
 import javarefresh.service.IDoctorService;
 
 /**
- * Purpose:
+ * Purpose: Rest controller having 3 types of methods which return the result in
+ * JSON, XML and PDF format.
  *
  * Description:
  *
@@ -40,7 +41,7 @@ public class DoctorController {
 	@Autowired
 	IDoctorService doctorService;
 
-	//XML format method start
+	// XML format method start
 	@GetMapping(value = "/doctorsInXML", produces = MediaType.APPLICATION_XML_VALUE)
 	public List<DoctorXMLBean> findAllDoctorsInXML() {
 		return doctorService.findAllDoctorsInXML();
@@ -50,43 +51,39 @@ public class DoctorController {
 	public DoctorXMLBean getDoctorByIdInXML(@PathVariable Long id) {
 		return doctorService.findDoctorByIdInXML(id);
 	}
-	
-	//JSON format method start
-	//By setting MediaType you can reproduce XML, JSON, PDF many more
+
+	// JSON format method start
+	// By setting MediaType you can reproduce XML, JSON, PDF many more
 	@GetMapping(value = "/doctorsInJSON", produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<DoctorJSONBean> findAllDoctorsInJSON() {
 		List<DoctorJSONBean> list = doctorService.findAllDoctorsInJSON();
 		return list;
 	}
-	
-	//@ResponseBody also produce JSON format output.
+
+	// @ResponseBody also produce JSON format output.
 	@GetMapping(value = "/doctorJason/{id}")
 	@ResponseBody
 	public DoctorJSONBean getDoctorByIdInJSON(@PathVariable Long id) {
 		return doctorService.findDoctorByIdInJSON(id);
 	}
-	
-	//PDF format method start
+
+	// PDF format method start
 	@GetMapping(value = "/doctorPdf/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
 	public DoctorJSONBean getDoctorByIdInPdf(@PathVariable Long id) {
 		return doctorService.findDoctorByIdInJSON(id);
 	}
-	
-	@RequestMapping(value = "/doctorsInPdf", method = RequestMethod.GET,
-            produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<InputStreamResource> findAllDoctorsReport() {
+
+	@RequestMapping(value = "/doctorsInPdf", method = RequestMethod.GET, produces = MediaType.APPLICATION_PDF_VALUE)
+	public ResponseEntity<InputStreamResource> findAllDoctorsReport() {
 
 		List<DoctorJSONBean> list = doctorService.findAllDoctorsInJSON();
 
-        ByteArrayInputStream bis = BuildPdf.citiesReport(list);
+		ByteArrayInputStream bis = BuildPdf.citiesReport(list);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "inline; filename=doctorsList.pdf");
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Content-Disposition", "inline; filename=doctorsList.pdf");
 
-        return ResponseEntity
-                .ok()
-                .headers(headers)
-                .contentType(MediaType.APPLICATION_PDF)
-                .body(new InputStreamResource(bis));
-    }
+		return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF)
+				.body(new InputStreamResource(bis));
+	}
 }
