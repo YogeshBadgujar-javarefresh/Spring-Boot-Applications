@@ -28,8 +28,7 @@ import javarefresh.service.IDoctorService;
 /**
  * Purpose: Rest controller having 3 types of methods which return the result in
  * JSON, XML and PDF format.
- *
- * Description:
+ * 
  *
  * @author Yogesh Badgujar email me in case any problem -
  *         badgujar.yogesh@gmail.com
