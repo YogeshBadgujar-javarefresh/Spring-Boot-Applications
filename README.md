@@ -5,9 +5,12 @@ Description - Generate the HTTP Response in different format such as XML, JSON a
 Technologies - Java 8, Spring Boot, Spring MVC, JPA, H2 database, itext(pdf generator), jackson dataformat for xml, Junit(MVC controller)
 Note - At the time of server start data will be uploaded into H2 database through SQL script.
 H2 Database console - http://localhost:8080/doctorApp/h2-console
+
 Get all records -
 XML data - http://localhost:8080/doctorApp/doctorsInXML
+
 JSON data - http://localhost:8080/doctorApp/doctorsInJSON
+
 PDF data - http://localhost:8080/doctorApp/doctorsInPdf
 
 Get particular data based on id
